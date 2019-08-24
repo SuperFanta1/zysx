@@ -1,0 +1,33 @@
+<html>
+    <head>
+        <title>天气预报</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="/static/weather.css">
+    </head>
+    <body>
+        <form action="#" method="#">
+            <input name="city" type="text" placeholder="请输入要查询的城市名称">
+            <button type="submit">查询</button>
+        </form>
+        <header>{{ city_name }}</header>
+        <main>
+            <img class="icon" src="{{ current_data.dayPictureUrl }}">
+            <div class="tempers">{{ current_data.temperature }}</div>
+            <div class="weather">{{ current_data.weather }}</div>
+            <div class="wind">{{ current_data.wind }}</div>
+            <div class="current">{{ current_data.date }}</div>
+        </main>
+        <footer>
+			{% for data_dict in feture_data %}
+			    <section>
+                    <div class="week">{{ data_dict.date }}</div>
+                    <img src="{{ data_dict.dayPictureUrl }}">
+                    <div class="temper">{{ data_dict.temperature }}</div>
+                    <div class="weather">{{ data_dict.weather }}</div>
+                    <div class="wind">{{ data_dict.wind }}</div>
+                </section>
+			{% endfor %}
+            <div style="clear:left;"></div>
+        </footer>
+    </body>
+</html>

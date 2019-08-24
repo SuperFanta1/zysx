@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{# extends：表示当前的index1.html模板，是继承自base.html这个模板，那么base.html称为父模板，index1.html称为子模板。一旦形成这种继承关系，base.html中已经存在的代码，index1.html不用再写了，可以直接继承过来。 #}
+
+{% block title %}
+    <title>测试1</title>
+{% endblock %}
+
+{% block content %}
+    <p>主要讲解前端技术</p>
+    <p>包含HTML+CSS+JS</p>
+{% endblock %}

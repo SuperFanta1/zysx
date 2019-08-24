@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Django模板语法讲解</title>
+        <link rel="stylesheet" href="/static/index.css">
+    </head>
+    <body>
+        <h1>渲染成功</h1>
+        {# 这个模板中的注释：{{  }}表示渲染变量 #}
+        <h1>{{ name }}</h1>
+        {# 给时间now_time这个变量设置一个过滤器：date, 过滤器的主要作用就是修改变量的显示格式 #}
+        <a href="#">{{ now_time | date:"Y-M-d h:i:s" }}</a>
+        {# 渲染People类的对象 #}
+        <p>{{ user.name }}{{ user.age }}</p>
+        {# p对象如何调用函数 #}
+        <p id="text">{{ user.show_info }}</p>
+
+        {# 写条件语句或者for循环，需要使用{%  %}这个语法实现。 #}
+        {% if user.age < 100 %}
+            <h3>他不是百岁老人。</h3>
+        {% elif user.age > 100 %}
+            <h3>超过百岁老人</h3>
+        {% else %}
+            <h3>刚好是百岁老人</h3>
+        {% endif %}
+
+        {% for book in book_list %}
+            <p>{{ book }}</p>
+        {% endfor %}
+
+        {% for key, value in info.items %}
+            <p>{{ key }}: {{ value }}</p>
+        {% endfor %}
+
+        <h3>{{ info.a }}</h3>
+        <h3>{{ info.b }}</h3>
+    </body>
+</html>

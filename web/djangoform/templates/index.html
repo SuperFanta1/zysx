@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Django框架form表单的用法</title>
+    </head>
+    <body>
+        {# form标签一般会和input组合使用。 #}
+        {# form标签具有发送GET/POST请求的能力，当点击type="submit"的input按钮的时候，这个请求会自动发送。 #}
+        <form action="/sum/" method="post">
+            {% csrf_token %}
+            {# label标签一般和input组合使用，也可以不组合使用，只写input标签也行。 #}
+            <label for="one">数字1：</label>
+            <input id="one" type="text" placeholder="请输入数字" name="p1">
+            <br>
+            <label for="two">数字2：</label>
+            <input id="two" type="text" placeholder="请输入数字" name="p2">
+            <br>
+            {# type="submit" 一般按钮标签使用这个，因为当你在页面中点击这个按钮的时候，浏览器会通过form标签发送一个请求。 #}
+            <input type="submit" value="计算">
+        </form>
+    </body>
+</html>

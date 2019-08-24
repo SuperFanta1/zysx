@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        {# {% block 块名称 %}: 在公共模板(父模板)中定义block块是为了让子模板可以自己去实现这个block，因为不同的子模板对于<title>标题的设置是不一样的， 所以父模板没法写死，只能在相应的位置给子模板预留这样一个块，方便子模板来自定义这个块的内容。 #}
+        {% block title %}{% endblock %}
+    </head>
+    <body>
+        <div>
+            <h1>欢迎进入测试系统</h1>
+            <a href="https://www.baidu.com">百度一下</a>
+            <a href="https://www.taobao.com">淘宝官网</a>
+        </div>
+        {% block content %}
+            {# 预留了一个content块，目的是让子模板自定义这个块的内容，因为每一个子模板中，这个部分的内容都不一样。 #}
+        {% endblock %}
+        <div>
+            <p>关于我们</p>
+            <p>联系电话</p>
+            <p>公司地址</p>
+        </div>
+    </body>
+</html>
